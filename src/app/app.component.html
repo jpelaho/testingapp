@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>My Servers</h2>
+      <button class="btn btn-primary" (click)="OnAddServer()">Add Server first</button>
+      <button class="btn btn-primary" [disabled]="allowNewServer" (click)="onCreateServer()">
+        Add Server
+      </button>
+      <br /><br />
+      <p *ngIf="serverCreated">
+        Server is created. Server name is {{ this.serverName }}
+      </p>
+      <br><br>
+
+      <ul class="list-group">
+        <li class="list-group-item " *ngFor="let server of servers; let i = index" (click)="onRemoveServer(i)">{{ server
+          }}
+        </li>
+      </ul>
+    </div>
+  </div>
